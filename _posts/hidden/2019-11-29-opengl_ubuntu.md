@@ -4,7 +4,7 @@ title: "OpenGL 개발환경 (Ubuntu)"
 subtitle: 'OpenGL 개발환경 (Ubuntu)'
 author: "Gandis"
 header-style: text
-hidden: true
+hidden: false
 tags:
   - Environment
 ---
@@ -38,7 +38,7 @@ TOTO : Nouveau 설치 방법
 
 Ubuntu에서는 'Software & Updates'를 사용해 설치할 Driver를 선택할 수 있다. 아래 그림은 'Software & Updates'창의 'Addtional Drivers' 탭이다. 화면에 보이는 'Proprietary' 항목들이 NVIDIA에서 제공하는 것이고 나머지는 Open Source이다.
 <figure>
-	<img src="/../assets/img/opengl_ubuntu/driver.png">
+	<img src="/../../img/opengl_ubuntu/driver.png">
 </figure>
 
 ## 2. GLEW 설치
