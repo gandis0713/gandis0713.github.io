@@ -4,7 +4,7 @@ title: "OpenGL 개발환경 (Ubuntu)"
 subtitle: 'OpenGL 개발환경 (Ubuntu)'
 author: "Gandis"
 header-style: text
-hidden: false
+hidden: true
 tags:
   - Environment
 ---
