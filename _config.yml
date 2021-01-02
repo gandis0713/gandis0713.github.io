@@ -14,6 +14,7 @@ future: true
 # SNS settings
 RSS: false
 github_username:    gandis0713
+email: "someone@example.com"
 #linkedin_username:  firstname-lastname-idxxxx
 
 
