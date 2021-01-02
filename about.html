@@ -6,12 +6,14 @@ header-img: "img/about-bg.jpg"
 multilingual: true
 ---
 
+{% if page.multilingual %}
 {% include multilingual-sel.html %}
+{% endif %}
 
-<!-- Chinese Version -->
-<div class="zh post-container">
-    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
-    {{ about_zh | markdownify }}
+<!-- Korean Version -->
+<div class="ko post-container">
+    {% capture about_ko %}{% include about/ko.md %}{% endcapture %}
+    {{ about_ko | markdownify }}
 </div>
 
 <!-- English Version -->
