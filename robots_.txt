@@ -7,4 +7,4 @@ Allow: /
 User-agent: BadBot
 Disallow: /
 
-Sitemap: http://gandis0713.github.io/sitemap.xml
+Sitemap: http://gandis0713.github.io/test.xml
