@@ -17,6 +17,9 @@ github_username:    gandis0713
 email: "someone@example.com"
 #linkedin_username:  firstname-lastname-idxxxx
 
+#SiteMap
+plugins:
+  - jekyll-sitemap
 
 
 # Build settings
