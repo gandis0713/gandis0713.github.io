@@ -5,7 +5,7 @@ header-img: img/home-bg.jpg
 email: gandis0713@gmail.com
 description: "I love 3D graphics."
 keyword: "c++, javascript, webgl, opengl, algorithm"
-url: "https://gandis0713.github.io"              # your host, for absolute URL
+url: "http://gandis0713.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
