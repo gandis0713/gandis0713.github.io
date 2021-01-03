@@ -7,4 +7,4 @@ Allow: /
 User-agent: BadBot
 Disallow: /
 
-Sitemap: {{ '/sitemap.xml' | relative_url | prepend: site.url }}
+Sitemap: http://gandis0713.github.io/sitemap.xml
