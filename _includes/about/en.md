@@ -1,8 +1,6 @@
 > Let's live simple.
 
-Updating...
-
-<!-- Hi，I'am Gandis that loves developing 3D Graphics Tool and Engine.
+Hi，I'am Gandis that loves developing 3D Graphics Tool and Engine.
 Currently, I develop 3D Desktop Application and 3D Web Application in [이우소프트][I-1].
 
 ##### Education
@@ -27,4 +25,4 @@ Currently, I develop 3D Desktop Application and 3D Web Application in [이우소
 [P-1]: https://play.google.com/store/apps/details?id=com.revengediet.revengediet&hl=en&gl=US
 [P-2]: https://www.ewoosoft.com/ez3d_i
 [P-3]: https://github.com/gandis0713/GEngine
-[C-1]: https://github.com/Kitware/vtk-js -->
+[C-1]: https://github.com/Kitware/vtk-js

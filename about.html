@@ -6,18 +6,22 @@ header-img: "img/about-bg.jpg"
 multilingual: true
 ---
 
+<font size="40em" color="Black">
+  Updating...
+</font>
+
 {% if page.multilingual %}
 {% include multilingual-sel.html %}
 {% endif %}
 
 <!-- Korean Version -->
-<div class="ko post-container">
+<div class="ko post-container" style="filter: blur(5px);">
     {% capture about_ko %}{% include about/ko.md %}{% endcapture %}
     {{ about_ko | markdownify }}
 </div>
 
 <!-- English Version -->
-<div class="en post-container">
+<div class="en post-container" style="filter: blur(5px);">
     {% capture about_en %}{% include about/en.md %}{% endcapture %}
     {{ about_en | markdownify }}
 </div>
