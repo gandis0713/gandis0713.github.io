@@ -52,5 +52,5 @@ sudo apt-get install libglew-dev
 ~~~
 
 **Reference**
--https://stackoverflow.com/questions/12383178/how-is-mesa-different-from-opengl-drivers
--https://www.khronos.org/opengl/wiki/Load_OpenGL_Functions
+- https://stackoverflow.com/questions/12383178/how-is-mesa-different-from-opengl-drivers
+- https://www.khronos.org/opengl/wiki/Load_OpenGL_Functions
