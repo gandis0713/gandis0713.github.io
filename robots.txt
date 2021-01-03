@@ -1,0 +1,10 @@
+User-agent: Googlebot
+User-agent: DAUMOA
+User-agent: NaverBot
+User-agent: ZumBot
+Allow: /
+
+User-agent: BadBot
+Disallow: /
+
+Sitemap: {{ '/sitemap.xml' | relative_url | prepend: site.url }}
