@@ -14,13 +14,8 @@ future: true
 # SNS settings
 RSS: false
 github_username:    gandis0713
-email: "someone@example.com"
+email: "gandis0713@gmail.com"
 #linkedin_username:  firstname-lastname-idxxxx
-
-#SiteMap
-plugins:
-  - jekyll-sitemap
-
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
