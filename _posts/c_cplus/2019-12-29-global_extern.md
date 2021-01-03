@@ -11,11 +11,13 @@ tags:
 
 C/C++로 개발을 하다보면 C Style의 global 함수 및 변수를 사용할 때가 있다. 하지만 이것들이 어떻게 정의되고 선언되어야 하는지도 제대로 모르고 써왔다. 지금까지 문제가 없었던게 참 신기할 정도이다. 아니면, 지금까지 문제가 발견되지 않았을 수도 있다. 앞으로 계속 global 함수 및 변수를 자주 사용하게 될텐데 더 이상 주먹구구 식으로 개발해서는 안될것 같다. 그래서 이번 기회에 이것들이 무엇인지 제대로 알아보고자 한다.
 
+### **global 함수 및 변수**
+global함수 및 변수는 해당 함수와 변수를 사용하고자 하는 내부 및 외부파일에서 모두 사용할 수 있으며, 프로그램이 시작될 때 생성되고 프로그램이 종료될 때 소멸된다.  
+
 ### **global 함수**
+global 함수는 global 함수가 선언된 파일을 외부파일에서 include하여 사용할 수 있으며, 일반적으로 global 함수는 다음과 같이 선언하고 사용한다.
 
-global 함수는 global 함수가 선언된 파일을 include하는 파일에서 global 함수를 사용할 수 있다. global 함수는 다음과 같이 선언하여 사용할 수 있다.
-
-#### define.h
+**define.h**
 ~~~cpp
 #ifndef DEFINE_H
 #define DEFINE_H
@@ -25,7 +27,7 @@ int get_number();
 #endif
 ~~~
 
-#### define.cpp
+**define.cpp**
 ~~~cpp
 #include "define.h"
 #include <iostream>
@@ -36,7 +38,7 @@ int get_number()
 }
 ~~~
 
-#### main.cpp
+**main.cpp**
 ~~~cpp
 #include <iostream>
 #include "define.h"
@@ -47,7 +49,7 @@ int main()
     return 0;
 }
 ~~~
-#### Commands for compile and linking
+**Commands for compile and linking**
 ~~~
 g++ -c define.cpp
 g++ -c main.cpp
@@ -58,7 +60,7 @@ main함수가 해당 source코드의 시작점이다. 'get_number'이라는 함�
 ### **global 변수**
 global 함수와 마찬가지로 global 변수도 위와 같은 방법으로 사용할 수 있을까? global 함수와 마찬가지로 global 변수를 추가해 보자.
 
-#### define.h
+**define.h**
 ~~~cpp
 #ifndef DEFINE_H
 #define DEFINE_H
@@ -69,7 +71,7 @@ int get_number();
 #endif
 ~~~
 
-#### define.cpp
+**define.cpp**
 ~~~cpp
 #include "define.h"
 #include <iostream>
@@ -80,7 +82,7 @@ int get_number()
 }
 ~~~
 
-#### main.cpp
+**main.cpp**
 ~~~cpp
 #include <iostream>
 #include "define.h"
@@ -173,13 +175,13 @@ int get_number();
 
 마지막으로 함수는 extern을 적용하지 않아도 잘 사용할 수 있었다. 함수는 default로 extern 키워드가 적용되고 있었기 때문이다. extern를 사용자가 직접 추가하지 않아도 기본적으로 적용되고 있는 것이다. 그렇기 때문에 사용자가 직접 'extern'을 선언/정의부에 추가할 경우 중복으로 extern이 적용된다. 반면, 변수는 기본적으로 extern이 적용되지 않는다.
 
-### **정리**
-#### - 선언은 중복이 허용되지만, 정의는 허용되지 않는다.
-#### - extern 키워드는 함수 및 변수의 visibility를 확장 시킨다.
-#### - 변수에 extern 키워드를 적용하면, 변수를 선언만 하는 것이 된다. (정의 X)
-#### - 함수에는 기본적으로 extern 키워드가 적용된다. 사용자가 extern 키워드를 추가할 경우 중복 적용된다.
-#### - 변수에 extern 키워드 적용과 동시에 초기화를 진행하면 정의가 된 것으로 간주한다. 
+### **요약**
+**- 선언은 중복이 허용되지만, 정의는 허용되지 않는다.**
+**- extern 키워드는 함수 및 변수의 visibility를 확장 시킨다.**
+**- 변수에 extern 키워드를 적용하면, 변수를 선언만 하는 것이 된다. (정의 X)**
+**- 함수에는 기본적으로 extern 키워드가 적용된다. 사용자가 extern 키워드를 추가할 경우 중복 적용된다.**
+**- 변수에 extern 키워드 적용과 동시에 초기화를 진행하면 정의가 된 것으로 간주한다.**
 
 
-### **reference**
+**reference**
  - https://www.geeksforgeeks.org/understanding-extern-keyword-in-c/

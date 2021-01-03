@@ -8,11 +8,13 @@ tags:
   - Data Structure
 ---
 
+## **트리(Tree)**
 트리는 그래프 자료구조의 일종이다. 트리는 여러 노드가 하나의 노드를 가리킬 수 없는 구조이다. 
 
+## **이진 트리(Binary Tree)**
 이진트리는 트리 자료구조의 일종으로 하나의 부모 노드가 최대 2개의 자식 노드를 가지는 자료구조를 이진트리라고 한다. 자식 노드를 가지고 있는 부모 노드는, 다른 부모 노드의 자식노드가 될 수 있다. 반대로 자식 노드는 다른 노드의 부모 노드가 될 수 있다.
 
-## 이진트리의 종류
+### 이진트리의 종류
 
 이진트리의 종류는 아래와 같이 4가지가 있다.
 
@@ -29,7 +31,7 @@ Full Binary Tree는 최하위 노드가 왼쪽 오른쪽 모두 채워져 있으
 Skewed Binary Tree는 최소 갯수의 노드를 가지며, 한쪽으로 노드가 치우쳐져 있는 상태를 말한다.
 
 
-### **Reference**
-##### - https://en.wikipedia.org/wiki/Binary_tree
+**Reference**
+- https://en.wikipedia.org/wiki/Binary_tree
 
 
