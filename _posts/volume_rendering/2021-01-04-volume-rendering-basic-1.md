@@ -23,6 +23,7 @@ Pixel은 Image를 구성하는 하나의 Data 요소를 말하며, 3차원 Volum
 Image들의 그룹으로 이루어진 3차원 Volume이 정규화된 패턴구조를 이루기 위해서는 Image들이 겹겹으로 층을 이루고 있으며, 이 층들은 정해진 위치(origin)에서 일정한 방향(Direction)으로 쌓여 나간다.
 
 3차원 Volume의 형태는 아래와 같다.
+
 **[Picture 1]**
 <figure>
 	<img src="/../../img/volume/volume-3d-array.png">
