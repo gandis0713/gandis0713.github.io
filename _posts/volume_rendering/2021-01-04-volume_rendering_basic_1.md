@@ -11,18 +11,18 @@ tags:
   - OpenGL
 ---
 
-Volume Rendering은 간단히 말해 3차원 Volume을 2차원 화면에 표시를 해주는 것을 말한다. 
+Volume Rendering은 간단히 말해 3차원 Volume을 2차원 화면에 표시를 해주는 것을 말한다. Volume Rendering에 알아보기 전에 Volume이 무엇인지 먼저 알아본다.
 
 
 ## **Volume이란?**
-2차원 Image는 Pixel이라고 불리는 Data가 2차원 Array로 구성된 형태를 말한다. Volume은 2차원에서 1차원 확장된 형태이며, Voxel이라고 불리는 Data가 3차원 Array형태로 구성되어 있다. 3차원 Arrya는 아래의 [Picture1]과 같다. 
+2차원 Image는 Pixel이라고 불리는 Data가 2차원 Array로 구성된 것을 말한다. Volume은 2차원에서 1차원이 확장된 형태이며, Voxel이라고 불리는 Data가 3차원 Array형태로 구성된 것을 말한다. Volume을 나타내는 3차원 Arrya는 아래의 [Picture 1]과 같다. 
 
 **[Picture 1]**
 <figure>
 	<img src="/../../img/volume/volume-3d-array.png">
 </figure>
 
-일반적으로 Volume은 CT, MPI와 같이 우리가 일상생활에서 많이 들어본 영상들을 구성하는데 많이 사용되며, [Picture 1]과 같이 이산회된 Data가 격자(Grid)형태를 띄고 있다. 이런 격자형태의 3차원 Array Data는 3차원 Volume의 특성을 사용해 정의된다.
+위 Picture 1의 3차원 Array Data는 일반적으로 CT, MPI와 같이 우리가 일상생활에서 많이 활용되는 영상들을 구성하는데 많이 사용된다. 이런 영상들은 일정한 규칙이 있는 Data 구조로 구성되며 [Picture 1]과 같이 격자(Grid)형태를 띄고 있다. 이런 격자형태의 3차원 Array Data는 3차원 Volume의 특성을 사용해 정의된다. 여기서는 격자형태의 3차원 Array가 어떤 특성으로 표현되는지만 확인하고, Volume을 구성하는 Data Type은 추후에 알아본다.
 
 ### **Volume의 특성**
  - Dimension
