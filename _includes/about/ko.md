@@ -17,7 +17,7 @@
 - 3D Desktop Application [[Ez3D-i]][P-2]
 - Graphics-Engine based on OpenGL [[GEngine]][P-3]
 
-##### Contributing
+##### Open Source Contributing
 
 - [VTK.js - The Visualization Toolkit for JavaScript][C-1]
 
