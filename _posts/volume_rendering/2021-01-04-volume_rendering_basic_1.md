@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Volume Rendering][기초][1] Volume 이란?"
+title: "<code>[Volume Rendering][기초][1]</code>Volume 이란?"
 subtitle: 'Volume 이란?'
 author: "Gandis"
 header-style: text
