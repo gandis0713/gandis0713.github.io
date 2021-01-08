@@ -4,7 +4,7 @@ title: "[Volume Rendering][기초][1] Volume 이란?"
 subtitle: 'Volume 이란?'
 author: "Gandis"
 header-style: text
-hidden: true
+hidden: false
 tags:
   - Volume Rendering
   - WebGL
