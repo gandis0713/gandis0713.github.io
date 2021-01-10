@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[3D Graphics][기초][1]<code>3차원 컴퓨터 그래픽(3D Computer Graphics)란?</code>"
+title: "<code>[3D Graphics][기초][1]</code> <br> 3차원 컴퓨터 그래픽(3D Computer Graphics)란?"
 subtitle: '3차원 컴퓨터 그래픽(3D Computer Graphics)란?'
 author: "Gandis"
 header-style: text
