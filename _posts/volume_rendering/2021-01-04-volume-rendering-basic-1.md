@@ -68,5 +68,5 @@ Volume Data의 범위를 나타낸다. 즉, Volume의 Dimension범위를 나타�
 |:---:|
 |![](/../../img/volume/volume-3d-array-in-world.png)
 
-우 그림은 Volume의 특성을 사용해 공간좌표계에서 *3차원 Volume Array Data*가 어떻게 표현되는지를 나타낸 그림이다.
+위 그림은 Volume의 특성을 사용해 공간좌표계에서 *3차원 Volume Array Data*가 어떻게 표현되는지를 나타낸 그림이다.
 
