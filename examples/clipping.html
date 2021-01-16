@@ -14,9 +14,9 @@ header-img: "img/about-bg.jpg"
     console.log("camera : ", camera);
     function onLoad(){
         const canvas = document.getElementById("canvas");
-        const gl = canvas.getContext("webgl2");
+        const gl = canvas.getContext("webgl");
         if(!gl) {
-            alert("Unable to initialize WebGL2.");
+            alert("Unable to initialize WebGL.");
         return;
     }
       
