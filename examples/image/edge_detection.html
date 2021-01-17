@@ -6,18 +6,16 @@ description: ""
 header-img: "img/about-bg.jpg"
 ---
 
-<script src="{{ site.baseurl }}/src/common/math/gl-matrix-min.js"></script>
-<script type="module">
-    import Shader from '/src/common/shader/shader.js';
-    import Window from '/src/common/render/windows/window.js';
+<script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
+<script>
+    const Shader = gengine.default.common.rendering.core.Shader;
     window.addEventListener('load', function() {
         const canvas = document.getElementById("canvas");
         const gl = canvas.getContext("webgl");
         const vertexShaderSourceURL = "/src/glsl/edge_detection/vs.glsl";
         const fragShaderSourceURL = "/src/glsl/edge_detection/fs.glsl";
-        const shader = new Shader(gl, vertexShaderSourceURL, fragShaderSourceURL);
-        shader.initialize();
-        const window = new Window(gl);
+        const shader = new Shader(gl);
+        shader.initialize(vertexShaderSourceURL, fragShaderSourceURL);
     })
 </script>
 <body>

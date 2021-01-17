@@ -1,14 +1,13 @@
-import Renderer from '../renderer.js';
+import Renderer from '../../renderer/AbstractRenderer';
 
-export default class Window {
+class AbstractWindow {
 
-    #gl 
-    #renderer
+    private gl;
+    private renderer;
 
     constructor(gl) {
         this.gl = gl;
         this.renderer = new Renderer(this.gl);
-        console.log("window")
     }
 
     setRenderer(renderer) {
@@ -20,9 +19,4 @@ export default class Window {
     }
 }
 
-export class ImageWindow extends Window{
-
-    constructor(gl) {
-        super(gl);
-    }
-}
+export default AbstractWindow;
