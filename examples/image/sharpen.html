@@ -1,20 +1,20 @@
 ---
 layout: page
-title: "Clipping"
+title: "Sharpen"
 hide-in-nav: true
 description: ""
 header-img: "img/about-bg.jpg"
 ---
 
-<script src="{{ site.baseurl }}/examples/src/common/gl-matrix-min.js"></script>
-<script src="{{ site.baseurl }}/examples/src/common/camera.js"></script>
+<script src="{{ site.baseurl }}/src/common/math/gl-matrix-min.js"></script>
+<script src="{{ site.baseurl }}/src/common/render/camera.js"></script>
+<script src="{{ site.baseurl }}/src/common/shader/camera.js"></script>
 
 <script>
     const camera = new Camera();
-    console.log("camera : ", camera);
     function onLoad(){
         const canvas = document.getElementById("canvas");
-        const gl = canvas.getContext("webgl");      
+        const gl = canvas.getContext("webgl"); 
     }
   </script>
   <body id="bodys" onload="onLoad()">

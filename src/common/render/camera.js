@@ -1,4 +1,4 @@
-function Camera() {
+export default function Camera() {
 
   this._state = {
     lookAt: {
