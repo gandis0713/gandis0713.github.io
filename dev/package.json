@@ -2,7 +2,7 @@
   "name": "gengine-js",
   "version": "0.0.0",
   "description": "Gandis Engine on Web",
-  "main": "index.js",
+  "main": "index.ts",
   "author": "gandis",
   "license": "MIT",
   "scripts": {

@@ -10,7 +10,7 @@ module.exports = {
     libraryTarget: "umd",   // Important
     umdNamedDefine: true   // Important
   },
-  mode: "development",
+  mode: "production",
   module: {
     rules: [
       {

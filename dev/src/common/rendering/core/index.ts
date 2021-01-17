@@ -4,8 +4,8 @@ import Shader from './Shader';
 import window from './window';
 
 export default {
-    camera,
-    renderer,
-    Shader,
-    window,
+  camera,
+  renderer,
+  Shader,
+  window,
 };

@@ -1,10 +1,5 @@
-
-
 class AbstractCamera {
-  constructor() {
-    
-  }
-
+  constructor() {}
 }
 
 export default AbstractCamera;
@@ -72,14 +67,14 @@ export default AbstractCamera;
 //     this._state.frustum.right += rate;
 //     this._state.frustum.bottom -= rate;
 //     this._state.frustum.top += rate;
-    
+
 //     const { left, right, bottom, top, near, far } = this._state.frustum;
 
 //     mat4.ortho(this._state.vcpc, left, right, bottom, top, near, far);
 //     mat4.invert(this._state.pcvc, this._state.vcpc);
 //     mat4.multiply(this._state.wcpc, this._state.vcpc, this._state.wcvc);
 //     mat4.invert(this._state.pcwc, this._state.wcpc);
-    
+
 //   }
 
 //   this.pan = (x, y) => {
@@ -93,7 +88,7 @@ export default AbstractCamera;
 //     vec3.cross(axis, dir, screenNormal);
 
 //     vec3.normalize(axis, axis);
-    
+
 //     let dgreeX = vec3.dot(axis, [1, 0, 0]);
 //     let dgreeY = vec3.dot(axis, [0, 1, 0]);
 
@@ -124,7 +119,7 @@ export default AbstractCamera;
 //     vec3.normalize(camTarToEye, camTarToEye);
 //     vec3.cross(up, camTarToEye, camRight);
 //     vec3.normalize(up, up);
-    
+
 //     vec3.cross(camRight, up, camTarToEye);
 //     vec3.normalize(camRight, camRight);
 
@@ -135,5 +130,5 @@ export default AbstractCamera;
 //     return { ...this._state };
 //   }
 
-//   this._initialize();  
+//   this._initialize();
 // }
