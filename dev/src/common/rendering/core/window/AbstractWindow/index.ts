@@ -1,19 +1,55 @@
-import Renderer from '../../renderer/AbstractRenderer';
+import AbstractRenderer from '../../renderer/AbstractRenderer';
+abstract class AbstractWindow {
+  protected canvas;
+  protected renderer: AbstractRenderer;
+  protected gl;
 
-class AbstractWindow {
-  private gl;
-  private renderer;
+  constructor(canvas) {
+    this.canvas = canvas;
+    this.gl = this.canvas.getContext('webgl');
 
-  constructor(gl) {
-    this.gl = gl;
-    this.renderer = new Renderer(this.gl);
+    this.bind();
+
+    this.canvas.addEventListener('mousedown', this.mouseDownEvent, false);
+    this.canvas.addEventListener('mousemove', this.mouseMoveEvent, false);
+    this.canvas.addEventListener('mouseup', this.mouseUpEvent, false);
+
+    this.initialize();
   }
 
-  setRenderer(renderer) {
+  protected bind(): void {
+    this.mouseDownEvent = this.mouseDownEvent.bind(this);
+    this.mouseMoveEvent = this.mouseMoveEvent.bind(this);
+    this.mouseUpEvent = this.mouseUpEvent.bind(this);
+  }
+
+  protected initialize(): void {
+    this.createRenderer();
+  }
+
+  protected abstract createRenderer(): void;
+
+  protected mouseDownEvent(event): void {
+    this.renderer.mouseDownEvent(event);
+  }
+
+  protected mouseMoveEvent(event): void {
+    this.renderer.mouseMoveEvent(event);
+  }
+
+  protected mouseUpEvent(event): void {
+    this.renderer.mouseUpEvent(event);
+  }
+
+  public render(): void {
+    this.renderer.draw();
+  }
+
+  public setRenderer(renderer): void {
     this.renderer = renderer;
   }
 
-  getRenderer() {
+  public getRenderer(): AbstractRenderer {
     return this.renderer;
   }
 }

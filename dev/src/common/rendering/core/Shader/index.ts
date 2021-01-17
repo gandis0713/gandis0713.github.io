@@ -1,19 +1,17 @@
 class Shader {
   private gl;
+  private vertexShader;
+  private fragmentShader;
+  private shaderProgram;
 
   constructor(gl) {
     this.gl = gl;
   }
 
-  public async initialize(vertexShaderSourceURL, fragShaderSourceURL) {
-    const vResponce = await fetch(vertexShaderSourceURL);
-    const vertexShaderSource = await vResponce.text();
-    const fResponce = await fetch(fragShaderSourceURL);
-    const fragShaderSource = await fResponce.text();
-
-    const vertexShader = this.createShader(this.gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = this.createShader(this.gl.FRAGMENT_SHADER, fragShaderSource);
-    this.createShaderProgram(vertexShader, fragmentShader);
+  public initialize(vertexShaderSource, fragShaderSource) {
+    this.vertexShader = this.createShader(this.gl.VERTEX_SHADER, vertexShaderSource);
+    this.fragmentShader = this.createShader(this.gl.FRAGMENT_SHADER, fragShaderSource);
+    this.createShaderProgram(this.vertexShader, this.fragmentShader);
   }
 
   private createShader(shaderType, shaderSource) {
@@ -34,22 +32,26 @@ class Shader {
   }
 
   private createShaderProgram(vertexShader, fragmentShader) {
-    const shaderProgram = this.gl.createProgram();
-    this.gl.attachShader(shaderProgram, vertexShader);
-    this.gl.attachShader(shaderProgram, fragmentShader);
-    this.gl.linkProgram(shaderProgram);
+    this.shaderProgram = this.gl.createProgram();
+    this.gl.attachShader(this.shaderProgram, vertexShader);
+    this.gl.attachShader(this.shaderProgram, fragmentShader);
+    this.gl.linkProgram(this.shaderProgram);
 
-    const success = this.gl.getProgramParameter(shaderProgram, this.gl.LINK_STATUS);
+    const success = this.gl.getProgramParameter(this.shaderProgram, this.gl.LINK_STATUS);
     if (success) {
       console.log('Succeed to create shader program.');
-      return shaderProgram;
+      return this.shaderProgram;
     }
 
     alert('Failed to create shader program.');
-    console.log(this.gl.getProgramInfoLog(shaderProgram));
-    this.gl.deleteProgram(shaderProgram);
+    console.log(this.gl.getProgramInfoLog(this.shaderProgram));
+    this.gl.deleteProgram(this.shaderProgram);
 
     return null;
+  }
+
+  public getShaderProgram() {
+    return this.shaderProgram;
   }
 }
 
