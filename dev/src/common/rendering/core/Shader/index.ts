@@ -9,6 +9,8 @@ class Shader {
   }
 
   public initialize(vertexShaderSource, fragShaderSource) {
+    console.log('this.gl : ', this.gl);
+    console.log('this.gl.VERTEX_SHADER : ', this.gl.VERTEX_SHADER);
     this.vertexShader = this.createShader(this.gl.VERTEX_SHADER, vertexShaderSource);
     this.fragmentShader = this.createShader(this.gl.FRAGMENT_SHADER, fragShaderSource);
     this.createShaderProgram(this.vertexShader, this.fragmentShader);
