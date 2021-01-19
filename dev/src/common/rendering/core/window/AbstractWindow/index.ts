@@ -7,6 +7,7 @@ abstract class AbstractWindow {
   constructor(canvas) {
     this.canvas = canvas;
     this.gl = this.canvas.getContext('webgl');
+    console.log('this.gl : ', this.gl);
 
     this.bind();
 
