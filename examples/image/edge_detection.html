@@ -8,14 +8,11 @@ header-img: "img/about-bg.jpg"
 
 <script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
 <script>
-    const Shader = gengine.default.common.rendering.core.Shader;
+    const EdgeImageWindow = gengine.default.common.rendering.core.window.EdgeImageWindow;
+    const EventCallback = gengine.default.common.rendering.core.event.EventCallback;
     window.addEventListener('load', function() {
         const canvas = document.getElementById("canvas");
-        const gl = canvas.getContext("webgl");
-        const vertexShaderSourceURL = "/src/glsl/edge_detection/vs.glsl";
-        const fragShaderSourceURL = "/src/glsl/edge_detection/fs.glsl";
-        const shader = new Shader(gl);
-        shader.initialize(vertexShaderSourceURL, fragShaderSourceURL);
+        const window = new EdgeImageWindow(canvas);
     })
 </script>
 <body>

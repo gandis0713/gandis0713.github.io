@@ -11,6 +11,7 @@ class EdgeImageRenderer extends AbstractImageRenderer {
 
   protected createShader(): void {
     super.createShader();
+    console.log('vertexShaderSource : ', vertexShaderSource);
     this.shader.initialize(vertexShaderSource, fragShaderSource);
     this.callback = this.callback.bind(this);
   }
