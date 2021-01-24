@@ -56,6 +56,10 @@ abstract class AbstractWindow {
   protected touchStartEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
+    if (event.touches.length > 0) {
+      alert('touch event length');
+      alert(event.touches.length);
+    }
     this.renderer.mouseDownEvent(event.touches[0]);
   }
 
