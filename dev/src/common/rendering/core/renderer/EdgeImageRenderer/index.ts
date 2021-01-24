@@ -47,6 +47,7 @@ class EdgeImageRenderer extends AbstractImageRenderer {
     super.mouseDownEvent(event);
 
     this.draw();
+    alert('draw');
   }
 
   public mouseMoveEvent(event): void {
