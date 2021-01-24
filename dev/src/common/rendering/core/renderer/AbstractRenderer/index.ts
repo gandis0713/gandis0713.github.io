@@ -22,6 +22,8 @@ abstract class AbstractRenderer {
   public mouseDownEvent(event): void {
     this.isDragging = true;
 
+    alert('event.offsetX');
+    alert(event.offsetX);
     this.mousePosition[0] = event.offsetX;
     this.mousePosition[1] = this.height - event.offsetY;
   }
