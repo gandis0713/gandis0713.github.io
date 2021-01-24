@@ -97,8 +97,12 @@ abstract class AbstractWindow {
 
   private getViewPosition(event): any {
     const bounds = this.container.getBoundingClientRect();
+    alert('bounds');
+    alert(bounds.width);
     const scaleX = this.canvas.width / bounds.width;
     const scaleY = this.canvas.height / bounds.height;
+    alert('event.clientX');
+    alert(event.clientX);
     const position = {
       x: scaleX * (event.clientX - bounds.left),
       y: scaleY * (bounds.height - event.clientY + bounds.top),
