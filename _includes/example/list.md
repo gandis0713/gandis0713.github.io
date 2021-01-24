@@ -1,7 +1,7 @@
 ## Examples
 
 #### Image
-- [Edge Detection]({{ site.baseurl }}/examples/image/edge_detection/)
-- [Sharpen]({{ site.baseurl }}/examples/image/sharpen/)
+- [Edge Detection]({{ site.baseurl }}/examples/image/edge/)
+- [Sharpening effect]({{ site.baseurl }}/examples/image/sharpen/)
 
 ---

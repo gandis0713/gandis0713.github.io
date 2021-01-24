@@ -6,18 +6,18 @@ description: ""
 header-img: "img/about-bg.jpg"
 ---
 
-<script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
-<script>
-    const EdgeImageWindow = gengine.default.common.rendering.core.window.EdgeImageWindow;
-    const EventCallback = gengine.default.common.rendering.core.event.EventCallback;
-    window.addEventListener('load', function() {
-        const canvas = document.getElementById("canvas");
-        const window = new EdgeImageWindow(canvas);
-    })
-</script>
-<body>
-    <canvas id="canvas" width="500" height="500"></canvas>
-</body>
+<div class="post-container">
+    {% capture example %}{% include example/list/edge_detection/title.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<div class="post-container">
+    {% capture example %}{% include example/list/edge_detection/content.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<br>
+<br>
 
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
