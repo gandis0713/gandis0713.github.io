@@ -59,6 +59,7 @@ class EdgeImageRenderer extends AbstractImageRenderer {
     super.mouseUpEvent(event);
 
     this.draw();
+    alert('end draw');
   }
 
   public draw(): void {

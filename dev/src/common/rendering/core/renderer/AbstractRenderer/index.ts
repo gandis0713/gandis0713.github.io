@@ -37,6 +37,7 @@ abstract class AbstractRenderer {
     this.mousePosition[1] = -100;
 
     this.isDragging = false;
+    alert('mouseUpEvent');
   }
 
   protected createShader(): void {
