@@ -35,8 +35,17 @@ abstract class AbstractWindow {
   }
 
   public initialize(width: number, height: number): void {
+    this.canvas.width = width;
+    this.canvas.height = height;
+
     this.createRenderer();
-    this.setSize(width, height);
+    this.initRenderer(width, height);
+  }
+
+  public initRenderer(width: number, height: number): void {
+    this.renderer.setShaderParameter();
+    this.renderer.createBuffer();
+    this.renderer.setSize(width, height);
   }
 
   protected abstract createRenderer(): void;

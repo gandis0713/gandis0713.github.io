@@ -1,16 +1,44 @@
-import AbstractImageRenderer from '../AbstractImageRenderer';
+import AbstractRenderer from '../AbstractRenderer';
 
-import vertexShaderSource from '../../../glsl/edge_detection/vs.glsl';
-import fragShaderSource from '../../../glsl/edge_detection/fs.glsl';
-
-class EdgeImageRenderer extends AbstractImageRenderer {
+abstract class AbstractImageRenderer extends AbstractRenderer {
+  protected vertexBuffer;
+  protected textureBuffer;
+  protected image;
   protected u_MCPC;
   protected u_mousePosition;
-  protected vertices;
 
-  protected createShader(): void {
-    super.createShader();
-    this.shader.initialize(vertexShaderSource, fragShaderSource);
+  public mouseDownEvent(event): void {
+    super.mouseDownEvent(event);
+
+    this.draw();
+  }
+
+  public mouseMoveEvent(event): void {
+    super.mouseMoveEvent(event);
+
+    this.draw();
+  }
+
+  public mouseUpEvent(event): void {
+    super.mouseUpEvent(event);
+
+    this.draw();
+  }
+
+  public setImage(image): void {
+    this.image = image;
+    this.gl.texImage2D(
+      this.gl.TEXTURE_2D,
+      0,
+      this.gl.RGBA,
+      this.gl.RGBA,
+      this.gl.UNSIGNED_BYTE,
+      this.image
+    );
+
+    // this.gl.generateMipmap(this.gl.TEXTURE_2D); // TODO check
+
+    this.draw();
   }
 
   public setShaderParameter(): void {
@@ -21,8 +49,6 @@ class EdgeImageRenderer extends AbstractImageRenderer {
   }
 
   public createBuffer(): void {
-    this.vertices = [-1, 1, 0, 1, 1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0];
-
     // initialize buffer
     this.vertexBuffer = this.gl.createBuffer();
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vertexBuffer);
@@ -43,30 +69,10 @@ class EdgeImageRenderer extends AbstractImageRenderer {
     this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
   }
 
-  public mouseDownEvent(event): void {
-    super.mouseDownEvent(event);
-
-    this.draw();
-  }
-
-  public mouseMoveEvent(event): void {
-    super.mouseMoveEvent(event);
-
-    this.draw();
-  }
-
-  public mouseUpEvent(event): void {
-    super.mouseUpEvent(event);
-
-    this.draw();
-  }
-
   public draw(): void {
     this.gl.clearColor(0.0, 0.0, 0.0, 1.0);
     this.gl.clearDepth(1.0);
-    this.gl.enable(this.gl.DEPTH_TEST);
-    this.gl.depthFunc(this.gl.LEQUAL);
-    // this.gl.enable(this.gl.CULL_FACE);
+
     this.gl.clear(this.gl.COLOR_BUFFER_BIT | this.gl.DEPTH_BUFFER_BIT);
 
     const shaderProgram = this.shader.getShaderProgram();
@@ -80,8 +86,8 @@ class EdgeImageRenderer extends AbstractImageRenderer {
     this.gl.uniformMatrix4fv(this.u_MCPC, false, this.camera.getWCPC());
     this.gl.uniform2fv(this.u_mousePosition, this.mousePosition);
 
-    this.gl.drawArrays(this.gl.TRIANGLES, 0, this.vertices.length / 3);
+    this.gl.drawArrays(this.gl.TRIANGLES, 0, 6);
   }
 }
 
-export default EdgeImageRenderer;
+export default AbstractImageRenderer;

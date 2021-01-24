@@ -1,7 +1,5 @@
-import common from './common';
-
-window.gengine = {common};
+import rendering from './rendering';
 
 export default {
-    common,
+  rendering,
 };

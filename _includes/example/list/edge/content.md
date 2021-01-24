@@ -5,7 +5,7 @@ ___
 
 <script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
 <script>
-    const EdgeImageWindow = gengine.default.common.rendering.core.window.EdgeImageWindow;
+    const EdgeImageWindow = gengine.default.rendering.core.window.EdgeImageWindow;
     let container;
     let imageWindow;
     let image;

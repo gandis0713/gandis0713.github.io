@@ -6,20 +6,18 @@ description: ""
 header-img: "img/about-bg.jpg"
 ---
 
-<script src="{{ site.baseurl }}/src/common/math/gl-matrix-min.js"></script>
-<script src="{{ site.baseurl }}/src/common/render/camera.js"></script>
-<script src="{{ site.baseurl }}/src/common/shader/camera.js"></script>
+<div class="post-container">
+    {% capture example %}{% include example/list/sharpen/title.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
 
-<script>
-    const camera = new Camera();
-    function onLoad(){
-        const canvas = document.getElementById("canvas");
-        const gl = canvas.getContext("webgl"); 
-    }
-  </script>
-  <body id="bodys" onload="onLoad()">
-    <canvas id="canvas" width="500" height="500"></canvas>
-</body>
+<div class="post-container">
+    {% capture example %}{% include example/list/sharpen/content.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<br>
+<br>
 
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
