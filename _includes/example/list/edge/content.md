@@ -1,7 +1,7 @@
 ___
 
 -  적용 방법
-   - **_아래 그림을 클릭(터치)하고 좌우로 움직인다._**
+   - 아래 그림을 **_클릭(터치)_**하고 **_좌우_**로 움직인다.
 
 <script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
 <script>

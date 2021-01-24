@@ -1,18 +1,18 @@
 ___
 
 -  적용 방법
-   - 아래 그림을 **_클릭(터치)_**하고 **_좌우_**로 움직인다.
+   - 아래 그림을 **_클릭(터치)_**하고 **_상하좌우_**로 움직인다.
 
 <script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
 <script>
-    const SharpenImageWindow = gengine.default.rendering.core.window.SharpenImageWindow;
+    const MagnifierImageWindow = gengine.default.rendering.core.window.MagnifierImageWindow;
     let container;
     let imageWindow;
     let image;
     let windowRatio = 1;
     window.addEventListener('load', function() {
         container = document.getElementById("gl_container");
-        imageWindow = new SharpenImageWindow(container);
+        imageWindow = new MagnifierImageWindow(container);
         imageWindow.initialize(container.clientWidth, container.clientWidth * windowRatio);
         image = new Image();
         image.src = '{{ site.baseurl }}/img/about-bg.jpg';

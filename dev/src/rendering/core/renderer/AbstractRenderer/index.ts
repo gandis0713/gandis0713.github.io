@@ -1,6 +1,7 @@
 import AbstractCamera from '../../camera/AbstractCamera';
 import OrthoGraphicCamera from '../../camera/OrthoGraphicCamera';
 import Shader from '../../Shader';
+import { vec2 } from 'gl-matrix';
 
 abstract class AbstractRenderer {
   protected gl;
@@ -10,7 +11,7 @@ abstract class AbstractRenderer {
   protected width;
   protected height;
   protected isDragging: boolean;
-  protected mousePosition: number[] = [-100, -100];
+  protected mousePosition: any = [-100, -100];
 
   constructor(gl) {
     this.gl = gl;
@@ -22,13 +23,13 @@ abstract class AbstractRenderer {
   public mouseDownEvent(viewPos): void {
     this.isDragging = true;
     this.mousePosition[0] = viewPos.x;
-    this.mousePosition[1] = this.height - viewPos.y;
+    this.mousePosition[1] = viewPos.y;
   }
 
   public mouseMoveEvent(viewPos): void {
     if (this.isDragging === true) {
       this.mousePosition[0] = viewPos.x;
-      this.mousePosition[1] = this.height - viewPos.y; // invert to rasterization in webgl Y axis.
+      this.mousePosition[1] = viewPos.y;
     }
   }
 

@@ -93,6 +93,10 @@ abstract class AbstractCamera {
   public getWCPC(): mat4 {
     return this.wcpc;
   }
+
+  public getVCPC(): mat4 {
+    return this.vcpc;
+  }
 }
 
 export default AbstractCamera;
