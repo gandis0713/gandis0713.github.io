@@ -54,19 +54,19 @@ abstract class AbstractWindow {
   }
 
   protected touchStartEvent(event): void {
-    this.renderer.mouseDownEvent(event);
+    this.renderer.mouseDownEvent(event.touches[0]);
   }
 
   protected touchMoveEvent(event): void {
-    this.renderer.mouseMoveEvent(event);
+    this.renderer.mouseMoveEvent(event.touches[0]);
   }
 
   protected touchEndEvent(event): void {
-    this.renderer.mouseUpEvent(event);
+    this.renderer.mouseUpEvent(event.touches[0]);
   }
 
   protected touchCancelEvent(event): void {
-    this.renderer.mouseUpEvent(event);
+    this.renderer.mouseUpEvent(event.touches[0]);
   }
 
   public setSize(width: number, height: number): void {
