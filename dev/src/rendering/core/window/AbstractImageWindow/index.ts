@@ -10,12 +10,6 @@ abstract class AbstractImageWindow extends AbstractWindow {
     const renderer = this.renderer as AbstractImageRenderer;
     renderer.setImage(image);
   }
-
-  public initRenderer(width: number, height: number): void {
-    this.renderer.setShaderParameter();
-    this.renderer.createBuffer();
-    this.renderer.setSize(width, height);
-  }
 }
 
 export default AbstractImageWindow;
