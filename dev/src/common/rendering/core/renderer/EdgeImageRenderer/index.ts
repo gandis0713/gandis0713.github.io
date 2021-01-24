@@ -7,13 +7,10 @@ class EdgeImageRenderer extends AbstractImageRenderer {
   protected u_MCPC;
   protected u_mousePosition;
   protected vertices;
-  protected image;
 
   protected createShader(): void {
     super.createShader();
-    console.log('vertexShaderSource : ', vertexShaderSource);
     this.shader.initialize(vertexShaderSource, fragShaderSource);
-    this.callback = this.callback.bind(this);
   }
 
   public setShaderParameter(): void {
@@ -24,56 +21,42 @@ class EdgeImageRenderer extends AbstractImageRenderer {
   }
 
   public createBuffer(): void {
-    const halfWidth = this.width / 2;
-    const halfHeight = this.height / 2;
-    this.vertices = [
-      -halfWidth,
-      halfHeight,
-      5,
-      halfWidth,
-      halfHeight,
-      5,
-      -halfWidth,
-      -halfHeight,
-      5,
-      -halfWidth,
-      -halfHeight,
-      5,
-      halfWidth,
-      halfHeight,
-      5,
-      halfWidth,
-      -halfHeight,
-      5,
-    ];
+    this.vertices = [-1, 1, 0, 1, 1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0];
 
     // initialize buffer
     this.vertexBuffer = this.gl.createBuffer();
     this.gl.bindBuffer(this.gl.ARRAY_BUFFER, this.vertexBuffer);
 
-    this.gl.bufferData(this.gl.ARRAY_BUFFER, new Float32Array(this.vertices), this.gl.STATIC_DRAW);
+    this.gl.bufferData(
+      this.gl.ARRAY_BUFFER,
+      new Float32Array([-1, 1, 0, 1, 1, 0, -1, -1, 0, -1, -1, 0, 1, 1, 0, 1, -1, 0]),
+      this.gl.STATIC_DRAW
+    );
 
     // create texture
     this.textureBuffer = this.gl.createTexture();
+    this.gl.bindTexture(this.gl.TEXTURE_2D, this.textureBuffer);
 
-    this.image = new Image();
-    this.image.src = '../../../img/about-bg.jpg';
-    this.image.addEventListener('load', this.callback);
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_S, this.gl.CLAMP_TO_EDGE);
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_WRAP_T, this.gl.CLAMP_TO_EDGE);
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MIN_FILTER, this.gl.LINEAR);
+    this.gl.texParameteri(this.gl.TEXTURE_2D, this.gl.TEXTURE_MAG_FILTER, this.gl.LINEAR);
   }
 
-  public callback(): void {
-    this.gl.bindTexture(this.gl.TEXTURE_2D, this.textureBuffer);
-    this.gl.texImage2D(
-      this.gl.TEXTURE_2D,
-      0,
-      this.gl.RGBA,
-      this.gl.RGBA,
-      this.gl.UNSIGNED_BYTE,
-      this.image
-    );
+  public mouseDownEvent(event): void {
+    super.mouseDownEvent(event);
 
-    console.log('image : ', this.image);
-    // this.gl.generateMipmap(this.gl.TEXTURE_2D); // TODO check
+    this.draw();
+  }
+
+  public mouseMoveEvent(event): void {
+    super.mouseMoveEvent(event);
+
+    this.draw();
+  }
+
+  public mouseUpEvent(event): void {
+    super.mouseUpEvent(event);
 
     this.draw();
   }
@@ -94,7 +77,6 @@ class EdgeImageRenderer extends AbstractImageRenderer {
     this.gl.enableVertexAttribArray(vertexID);
 
     this.gl.useProgram(shaderProgram);
-    console.log('this.camera.getWCPC() : ', this.camera.getWCPC());
     this.gl.uniformMatrix4fv(this.u_MCPC, false, this.camera.getWCPC());
     this.gl.uniform2fv(this.u_mousePosition, this.mousePosition);
 

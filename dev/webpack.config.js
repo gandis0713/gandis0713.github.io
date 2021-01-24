@@ -6,11 +6,11 @@ module.exports = {
   output: {
     filename: 'gengine.js',
     path: path.resolve(__dirname + '/dist'),
-    library: 'gengine', // Important
-    libraryTarget: 'umd', // Important
-    umdNamedDefine: true, // Important
+    library: 'gengine',
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
-  mode: 'development',
+  mode: 'production',
   module: {
     rules: [
       {

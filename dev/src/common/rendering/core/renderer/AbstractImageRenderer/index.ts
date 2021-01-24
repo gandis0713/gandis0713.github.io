@@ -3,26 +3,34 @@ import AbstractRenderer from '../AbstractRenderer';
 abstract class AbstractImageRenderer extends AbstractRenderer {
   protected vertexBuffer;
   protected textureBuffer;
+  protected image;
 
   public mouseDownEvent(event): void {
-    this.isDragging = true;
-
-    this.mousePosition[0] = event.offsetX;
-    this.mousePosition[1] = this.height - event.offsetY;
+    super.mouseDownEvent(event);
   }
 
   public mouseMoveEvent(event): void {
-    if (this.isDragging === true) {
-      this.mousePosition[0] = event.offsetX;
-      this.mousePosition[1] = this.height - event.offsetY; // invert to rasterization in webgl Y axis.
-    }
+    super.mouseMoveEvent(event);
   }
 
   public mouseUpEvent(event): void {
-    this.mousePosition[0] = event.offsetX;
-    this.mousePosition[1] = this.height - event.offsetY;
+    super.mouseUpEvent(event);
+  }
 
-    this.isDragging = false;
+  public setImage(image): void {
+    this.image = image;
+    this.gl.texImage2D(
+      this.gl.TEXTURE_2D,
+      0,
+      this.gl.RGBA,
+      this.gl.RGBA,
+      this.gl.UNSIGNED_BYTE,
+      this.image
+    );
+
+    // this.gl.generateMipmap(this.gl.TEXTURE_2D); // TODO check
+
+    this.draw();
   }
 }
 

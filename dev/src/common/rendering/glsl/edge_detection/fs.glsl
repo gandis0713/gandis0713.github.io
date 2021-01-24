@@ -10,7 +10,6 @@ uniform highp mat4 u_MCPC;
 
 
 void main() {
-
   float width = 5.0;
   // sobel ref : https://www.sciencedirect.com/topics/engineering/sobel-operator
   float xDet[9];
@@ -25,6 +24,17 @@ void main() {
   yDet[6] = yDet[8] = 1.0;
   yDet[1] = -2.0;
   yDet[7] = 2.0;
+
+  float sharpenMat3[9];
+  sharpenMat3[0] = -1.0;
+  sharpenMat3[1] = -1.0;
+  sharpenMat3[2] = -1.0;
+  sharpenMat3[3] = -1.0;
+  sharpenMat3[4] = 9.0;
+  sharpenMat3[5] = -1.0;
+  sharpenMat3[6] = -1.0;
+  sharpenMat3[7] = -1.0;
+  sharpenMat3[8] = -1.0;
   // float xDet[9] = float[9](-1.0, 0.0, 1.0, -2.0, 0.0, 2.0, -1.0, 0.0, 1.0); // webgl2 only
   // float yDet[9] = float[9](-1.0, -2.0, -1.0, 0.0, 0.0, 0.0, 1.0, 2.0, 1.0); // webgl2 only
   if(u_mousePosition.x - width > gl_FragCoord.x) // draw image with edge effect.
@@ -35,12 +45,24 @@ void main() {
       for(int j = 1; j <= 3; j++) // due to shift +Y axis litle bit. need to be check.
       {
         float x = (gl_FragCoord.x + float(i)) / 2.0;
-        float y = 1.0 - (gl_FragCoord.y + float(j)) / 2.0;
+        float y = (gl_FragCoord.y + float(j)) / 2.0;
         vec4 coord = u_MCPC * vec4(x, y, 0, 1);
-        gl_FragColor.rgb += texture2D(u_texture, coord.xy).rrr * yDet[(i + 2) * 3 + (j - 1)];
-        gl_FragColor.rgb += texture2D(u_texture, coord.xy).rrr * xDet[(i + 2) * 3 + (j - 1)];
+        gl_FragColor.rgb += texture2D(u_texture, vec2(coord.x, 1.0 - coord.y)).rrr * yDet[(i + 2) * 3 + (j - 1)];
+        gl_FragColor.rgb += texture2D(u_texture, vec2(coord.x, 1.0 - coord.y)).rrr * xDet[(i + 2) * 3 + (j - 1)];
       }
     }
+
+    // gl_FragColor = vec4(0, 0, 0, 0);
+    // for(int i = -1; i <= 1; i++)
+    // {
+    //   for(int j = 1; j <= 3; j++) // due to shift +Y axis litle bit. need to be check.
+    //   {
+    //     float x = (gl_FragCoord.x + float(i)) / 2.0;
+    //     float y = (gl_FragCoord.y + float(j)) / 2.0;
+    //     vec4 coord = u_MCPC * vec4(x, y, 0, 1);
+    //     gl_FragColor += texture2D(u_texture, vec2(coord.x, 1.0 - coord.y)) * sharpenMat3[(i + 1) * 3 + (j - 1)];
+    //   }
+    // }
   }
   else if(u_mousePosition.x + width >= gl_FragCoord.x && u_mousePosition.x - width <= gl_FragCoord.x) // draw vertical line.
   {

@@ -10,7 +10,7 @@ abstract class AbstractRenderer {
   protected width;
   protected height;
   protected isDragging: boolean;
-  protected mousePosition: number[] = [0, 0];
+  protected mousePosition: number[] = [-100, -100];
 
   constructor(gl) {
     this.gl = gl;
@@ -19,14 +19,34 @@ abstract class AbstractRenderer {
     this.createShader();
   }
 
-  public abstract mouseDownEvent(event): void;
+  public mouseDownEvent(event): void {
+    this.isDragging = true;
 
-  public abstract mouseMoveEvent(event): void;
+    this.mousePosition[0] = event.offsetX;
+    this.mousePosition[1] = this.height - event.offsetY;
+  }
 
-  public abstract mouseUpEvent(event): void;
+  public mouseMoveEvent(event): void {
+    if (this.isDragging === true) {
+      this.mousePosition[0] = event.offsetX;
+      this.mousePosition[1] = this.height - event.offsetY; // invert to rasterization in webgl Y axis.
+    }
+  }
+
+  public mouseUpEvent(event): void {
+    this.mousePosition[0] = -100;
+    this.mousePosition[1] = -100;
+
+    this.isDragging = false;
+  }
 
   protected createShader(): void {
     this.shader = new Shader(this.gl);
+  }
+
+  public setSize(width: number, height: number): void {
+    this.setViewport(0, 0, width, height);
+    this.camera.setSize(-width / 2, width / 2, -height / 2, height / 2);
   }
 
   public setViewport(x: number, y: number, width: number, height: number): void {

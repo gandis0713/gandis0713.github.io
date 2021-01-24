@@ -1,21 +1,21 @@
 import AbstractRenderer from '../../renderer/AbstractRenderer';
 abstract class AbstractWindow {
+  protected container;
   protected canvas;
   protected renderer: AbstractRenderer;
   protected gl;
 
-  constructor(canvas) {
-    this.canvas = canvas;
+  constructor(container) {
+    this.container = container;
+    this.canvas = document.createElement('canvas');
+    this.container.appendChild(this.canvas);
     this.gl = this.canvas.getContext('webgl');
-    console.log('this.gl : ', this.gl);
 
     this.bind();
 
-    this.canvas.addEventListener('mousedown', this.mouseDownEvent, false);
-    this.canvas.addEventListener('mousemove', this.mouseMoveEvent, false);
-    this.canvas.addEventListener('mouseup', this.mouseUpEvent, false);
-
-    this.initialize();
+    this.container.addEventListener('mousedown', this.mouseDownEvent, false);
+    this.container.addEventListener('mousemove', this.mouseMoveEvent, false);
+    this.container.addEventListener('mouseup', this.mouseUpEvent, false);
   }
 
   protected bind(): void {
@@ -24,8 +24,9 @@ abstract class AbstractWindow {
     this.mouseUpEvent = this.mouseUpEvent.bind(this);
   }
 
-  protected initialize(): void {
+  public initialize(width: number, height: number): void {
     this.createRenderer();
+    this.setSize(width, height);
   }
 
   protected abstract createRenderer(): void;
@@ -40,6 +41,12 @@ abstract class AbstractWindow {
 
   protected mouseUpEvent(event): void {
     this.renderer.mouseUpEvent(event);
+  }
+
+  public setSize(width: number, height: number): void {
+    this.canvas.width = width;
+    this.canvas.height = height;
+    this.renderer.setSize(width, height);
   }
 
   public render(): void {

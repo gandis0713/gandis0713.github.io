@@ -54,20 +54,36 @@ abstract class AbstractCamera {
     this.pcvc = mat4.create();
     this.wcpc = mat4.create();
     this.pcwc = mat4.create();
-    console.log('this.lookAt : ', this.lookAt);
-    console.log('this.frustum : ', this.frustum);
 
     this.initialize();
   }
 
   protected initialize(): void {
     mat4.lookAt(this.wcvc, this.lookAt.eye, this.lookAt.target, this.lookAt.up);
-    console.log('this.wcvc : ', this.wcvc);
     mat4.invert(this.vcwc, this.wcvc);
   }
 
+  protected abstract setProperty(): void;
+
   public setLootAt(lookAt: ILootAt): void {
     this.lookAt = lookAt;
+  }
+
+  public setSize(left: number, right: number, bottom: number, top: number): void {
+    this.frustum.left = left;
+    this.frustum.right = right;
+    this.frustum.bottom = bottom;
+    this.frustum.top = top;
+  }
+
+  public setHorizontalSize(left: number, right: number): void {
+    this.frustum.left = left;
+    this.frustum.right = right;
+  }
+
+  public setVerticalSize(bottom: number, top: number): void {
+    this.frustum.bottom = bottom;
+    this.frustum.top = top;
   }
 
   public setFrustum(frustum: IFrustum): void {

@@ -1,3 +1,4 @@
+import AbstractImageRenderer from '../../renderer/AbstractImageRenderer';
 import AbstractWindow from '../AbstractWindow';
 
 abstract class AbstractImageWindow extends AbstractWindow {
@@ -5,11 +6,10 @@ abstract class AbstractImageWindow extends AbstractWindow {
     super(gl);
   }
 
-  protected mouseDownEvent(event): void {}
-
-  protected mouseMoveEvent(event): void {}
-
-  protected mouseUpEvent(event): void {}
+  public setImage(image): void {
+    const renderer = this.renderer as AbstractImageRenderer;
+    renderer.setImage(image);
+  }
 }
 
 export default AbstractImageWindow;
