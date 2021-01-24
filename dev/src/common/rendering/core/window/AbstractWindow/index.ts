@@ -56,25 +56,25 @@ abstract class AbstractWindow {
   protected touchStartEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseDownEvent(this.getViewPosition(event));
+    this.renderer.mouseDownEvent(this.getViewPosition(event.touches[0]));
   }
 
   protected touchMoveEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseMoveEvent(this.getViewPosition(event));
+    this.renderer.mouseMoveEvent(this.getViewPosition(event.touches[0]));
   }
 
   protected touchEndEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseUpEvent(this.getViewPosition(event));
+    this.renderer.mouseUpEvent(this.getViewPosition(event.touches[0]));
   }
 
   protected touchCancelEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseUpEvent(this.getViewPosition(event));
+    this.renderer.mouseUpEvent(this.getViewPosition(event.touches[0]));
   }
 
   public setSize(width: number, height: number): void {
@@ -97,12 +97,8 @@ abstract class AbstractWindow {
 
   private getViewPosition(event): any {
     const bounds = this.container.getBoundingClientRect();
-    alert('bounds');
-    alert(bounds.width);
     const scaleX = this.canvas.width / bounds.width;
     const scaleY = this.canvas.height / bounds.height;
-    alert('event.clientX');
-    alert(event.clientX);
     const position = {
       x: scaleX * (event.clientX - bounds.left),
       y: scaleY * (bounds.height - event.clientY + bounds.top),

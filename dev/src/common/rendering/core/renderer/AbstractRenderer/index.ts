@@ -21,8 +21,6 @@ abstract class AbstractRenderer {
 
   public mouseDownEvent(viewPos): void {
     this.isDragging = true;
-    alert('viewPos.x');
-    alert(viewPos.x);
     this.mousePosition[0] = viewPos.x;
     this.mousePosition[1] = this.height - viewPos.y;
   }
