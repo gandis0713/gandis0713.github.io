@@ -56,19 +56,24 @@ abstract class AbstractWindow {
   protected touchStartEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    alert('touchStartEvent');
     this.renderer.mouseDownEvent(event.touches[0]);
   }
 
   protected touchMoveEvent(event): void {
+    event.stopPropagation();
+    event.preventDefault();
     this.renderer.mouseMoveEvent(event.touches[0]);
   }
 
   protected touchEndEvent(event): void {
+    event.stopPropagation();
+    event.preventDefault();
     this.renderer.mouseUpEvent(event.touches[0]);
   }
 
   protected touchCancelEvent(event): void {
+    event.stopPropagation();
+    event.preventDefault();
     this.renderer.mouseUpEvent(event.touches[0]);
   }
 
