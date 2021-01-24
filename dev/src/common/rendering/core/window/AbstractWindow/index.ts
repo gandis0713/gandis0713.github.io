@@ -68,14 +68,12 @@ abstract class AbstractWindow {
   protected touchEndEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    alert('touchEndEvent');
     this.renderer.mouseUpEvent(this.getViewPosition(event.touches[0]));
   }
 
   protected touchCancelEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    alert('touchCancelEvent');
     this.renderer.mouseUpEvent(this.getViewPosition(event.touches[0]));
   }
 
