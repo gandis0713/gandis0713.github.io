@@ -42,43 +42,39 @@ abstract class AbstractWindow {
   protected abstract createRenderer(): void;
 
   protected mouseDownEvent(event): void {
-    this.renderer.mouseDownEvent(event);
+    this.renderer.mouseDownEvent(this.getViewPosition(event));
   }
 
   protected mouseMoveEvent(event): void {
-    this.renderer.mouseMoveEvent(event);
+    this.renderer.mouseMoveEvent(this.getViewPosition(event));
   }
 
   protected mouseUpEvent(event): void {
-    this.renderer.mouseUpEvent(event);
+    this.renderer.mouseUpEvent(this.getViewPosition(event));
   }
 
   protected touchStartEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    if (event.touches.length > 0) {
-      alert('touch event length');
-      alert(event.touches.length);
-    }
-    this.renderer.mouseDownEvent(event.touches[0]);
+    this.renderer.mouseDownEvent(this.getViewPosition(event));
   }
 
   protected touchMoveEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseMoveEvent(event.touches[0]);
+    this.renderer.mouseMoveEvent(this.getViewPosition(event));
   }
 
   protected touchEndEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseUpEvent(event.touches[0]);
+    this.renderer.mouseUpEvent(this.getViewPosition(event));
   }
 
   protected touchCancelEvent(event): void {
     event.stopPropagation();
     event.preventDefault();
-    this.renderer.mouseUpEvent(event.touches[0]);
+    this.renderer.mouseUpEvent(this.getViewPosition(event));
   }
 
   public setSize(width: number, height: number): void {
@@ -97,6 +93,18 @@ abstract class AbstractWindow {
 
   public getRenderer(): AbstractRenderer {
     return this.renderer;
+  }
+
+  private getViewPosition(event): any {
+    const bounds = this.container.getBoundingClientRect();
+    const scaleX = this.canvas.width / bounds.width;
+    const scaleY = this.canvas.height / bounds.height;
+    const position = {
+      x: scaleX * (event.clientX - bounds.left),
+      y: scaleY * (bounds.height - event.clientY + bounds.top),
+    };
+
+    return position;
   }
 }
 

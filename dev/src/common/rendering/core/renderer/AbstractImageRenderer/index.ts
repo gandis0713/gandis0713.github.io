@@ -7,7 +7,6 @@ abstract class AbstractImageRenderer extends AbstractRenderer {
 
   public mouseDownEvent(event): void {
     super.mouseDownEvent(event);
-    alert('draw1');
   }
 
   public mouseMoveEvent(event): void {

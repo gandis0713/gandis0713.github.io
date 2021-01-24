@@ -19,19 +19,16 @@ abstract class AbstractRenderer {
     this.createShader();
   }
 
-  public mouseDownEvent(event): void {
+  public mouseDownEvent(viewPos): void {
     this.isDragging = true;
-
-    alert('event.offsetX');
-    alert(event.offsetX);
-    this.mousePosition[0] = event.offsetX;
-    this.mousePosition[1] = this.height - event.offsetY;
+    this.mousePosition[0] = viewPos.x;
+    this.mousePosition[1] = this.height - viewPos.y;
   }
 
-  public mouseMoveEvent(event): void {
+  public mouseMoveEvent(viewPos): void {
     if (this.isDragging === true) {
-      this.mousePosition[0] = event.offsetX;
-      this.mousePosition[1] = this.height - event.offsetY; // invert to rasterization in webgl Y axis.
+      this.mousePosition[0] = viewPos.x;
+      this.mousePosition[1] = this.height - viewPos.y; // invert to rasterization in webgl Y axis.
     }
   }
 
