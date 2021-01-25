@@ -15,7 +15,7 @@ ___
         imageWindow = new SmoothImageWindow(container);
         imageWindow.initialize(container.clientWidth, container.clientWidth * windowRatio);
         image = new Image();
-        image.src = '{{ site.baseurl }}/img/placeholder-big.jpg';
+        image.src = '{{ site.baseurl }}/img/about-bg.jpg';
         image.addEventListener('load', function() {
             windowRatio = image.height / image.width;
             imageWindow.setSize(container.clientWidth, container.clientWidth * windowRatio);
