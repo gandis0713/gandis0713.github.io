@@ -5,14 +5,14 @@ ___
 
 <script src="{{ site.baseurl }}/dev/dist/gengine.js"></script>
 <script>
-    const EdgeImageWindow = gengine.default.rendering.core.window.EdgeImageWindow;
+    const SmoothImageWindow = gengine.default.rendering.core.window.SmoothImageWindow;
     let container;
     let imageWindow;
     let image;
     let windowRatio = 1;
     window.addEventListener('load', function() {
         container = document.getElementById("gl_container");
-        imageWindow = new EdgeImageWindow(container);
+        imageWindow = new SmoothImageWindow(container);
         imageWindow.initialize(container.clientWidth, container.clientWidth * windowRatio);
         image = new Image();
         image.src = '{{ site.baseurl }}/img/about-bg.jpg';
