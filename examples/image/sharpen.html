@@ -1,18 +1,23 @@
 ---
 layout: page
-title: "Sharpen"
+title: "Examples"
 hide-in-nav: true
 description: ""
 header-img: "img/about-bg.jpg"
 ---
 
 <div class="post-container">
-    {% capture example %}{% include example/list/sharpen/title.md %}{% endcapture %}
+    {% capture example %}{% include example/image/title.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 
 <div class="post-container">
-    {% capture example %}{% include example/list/sharpen/content.md %}{% endcapture %}
+    {% capture example %}{% include example/image/sharpen/subtitle.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<div class="post-container">
+    {% capture example %}{% include example/image/sharpen/content.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 

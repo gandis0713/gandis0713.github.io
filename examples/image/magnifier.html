@@ -1,18 +1,23 @@
 ---
 layout: page
-title: "Magnifier"
+title: "Examples"
 hide-in-nav: true
 description: ""
 header-img: "img/about-bg.jpg"
 ---
 
 <div class="post-container">
-    {% capture example %}{% include example/list/magnifier/title.md %}{% endcapture %}
+    {% capture example %}{% include example/image/title.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 
 <div class="post-container">
-    {% capture example %}{% include example/list/magnifier/content.md %}{% endcapture %}
+    {% capture example %}{% include example/image/magnifier/subtitle.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<div class="post-container">
+    {% capture example %}{% include example/image/magnifier/content.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 

@@ -1,18 +1,23 @@
 ---
 layout: page
-title: "Edge Detection"
+title: "Examples"
 hide-in-nav: true
 description: ""
 header-img: "img/about-bg.jpg"
 ---
 
 <div class="post-container">
-    {% capture example %}{% include example/list/edge/title.md %}{% endcapture %}
+    {% capture example %}{% include example/image/title.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 
 <div class="post-container">
-    {% capture example %}{% include example/list/edge/content.md %}{% endcapture %}
+    {% capture example %}{% include example/image/edge/subtitle.md %}{% endcapture %}
+    {{ example | markdownify }}
+</div>
+
+<div class="post-container">
+    {% capture example %}{% include example/image/edge/content.md %}{% endcapture %}
     {{ example | markdownify }}
 </div>
 
