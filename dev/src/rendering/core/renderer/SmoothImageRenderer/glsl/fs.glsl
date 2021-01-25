@@ -27,12 +27,12 @@ void main() {
     gl_FragColor = vec4(0, 0, 0, 0);
     for(int i = -1; i <= 1; i++)
     {
-      for(int j = 1; j <= 3; j++) // due to shift +Y axis litle bit. need to be check.
+      for(int j = 0; j <= 2; j++) // due to shift +Y axis litle bit. need to be check.
       {
         float x = (gl_FragCoord.x + float(i)) / 2.0;
         float y = (gl_FragCoord.y + float(j)) / 2.0;
         vec4 coord = u_MCPC * vec4(x, y, 0, 1);
-        gl_FragColor += texture2D(u_texture, vec2(coord.x, 1.0 - coord.y)) * smoothMat3[(i + 1) * 3 + (j - 1)];
+        gl_FragColor += texture2D(u_texture, vec2(coord.x, 1.0 - coord.y)) * smoothMat3[(i + 1) * 3 + (j)];
       }
     }
   }
