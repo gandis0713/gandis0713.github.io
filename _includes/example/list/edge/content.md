@@ -17,6 +17,7 @@ ___
         image = new Image();
         image.src = '{{ site.baseurl }}/img/about-bg.jpg';
         image.addEventListener('load', function() {
+            console.log("image loaded");
             windowRatio = image.height / image.width;
             imageWindow.setSize(container.clientWidth, container.clientWidth * windowRatio);
             imageWindow.setImage(image);
