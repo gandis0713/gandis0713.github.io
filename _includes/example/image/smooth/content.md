@@ -20,6 +20,7 @@ ___
             windowRatio = image.height / image.width;
             imageWindow.setSize(container.clientWidth, container.clientWidth * windowRatio);
             imageWindow.setImage(image);
+            alert("load smooth");
         });
     })
     window.addEventListener('resize', function() {
