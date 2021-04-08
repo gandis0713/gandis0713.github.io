@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "<code>[3D Graphics][model]</code> <br> OBJ geometry format"
-subtitle: 'OBJ geometry foramt'
+subtitle: 'OBJ geometry format'
 author: "Gandis"
 header-style: text
 hidden: false
