@@ -11,7 +11,7 @@ tags:
   - OpenGL
   - Mesh
 ---
-## **OBJ**
+## **OBJ 란?**
 3D 그래픽에서 기하학적인 데이터를 저장하는 포맷들은 STL, OBJ, FBX, DAE, 3DS, IGES, STEP, VRML/X3D, AMF 등 여러가지가 있다. OBJ는 이런 종류들중에 물체의 재질(Material)이나 질감(Texture)을 표현할 수 있는 정보를 포함하고 있어, 기하학적인 형태만을 표현하는 포맷들보다 좀더 자세하게 물체를 표현할 수 있다.
 
 ---
@@ -21,6 +21,8 @@ OBJ는 보통 3개의 파일로 구성이 된다.
 1. *.obj (*.mod)
 2. *.mtl
 3. *.bmp, jpg, png ..
+
+*.obj는 ASCII 문자열 포맷이며, .mod는 Binary 포맷이다.*
 
 ***.obj**
 
