@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "<code>[WebGPU]</code> <br> WebGPU"
-subtitle: 'WebGPU'
+title: "<code>[WebGPU]</code> <br> WebGPU 소개"
+subtitle: 'WebGPU 소개'
 author: "Gandis"
 header-style: text
 hidden: false
@@ -11,7 +11,7 @@ tags:
   - WebGL
 ---
 ## **WebGPU**
-WebGPU는 WebGL를 대체할 미래의 Web Grpahics API로 Google, Apple, Microsoft, Mozila 등으로 이루어진 [W3C](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium)에서 WebGPU의 Spec을 논의하며 정의하고 있다. (아직 공식적으로 출시가 되지는 않았다.- 2021년 04월 17일 기준)
+WebGPU는 WebGL를 대체할 미래의 Web Grpahics API로 Google, Apple, Microsoft, Mozila 등으로 이루어진 [W3C](https://en.wikipedia.org/wiki/World_Wide_Web_Consortium)의 [GPU for the Web](https://www.w3.org/community/gpu/) Community Group에서 WebGPU의 Spec을 논의하며 정의하고 있다. (아직 공식적으로 출시가 되지는 않았다.- 2021년 04월 17일 기준)
 
 ---
 
@@ -32,7 +32,16 @@ WebGL API는 HTML5에서 제공하는 Canvas Element를 통해 접근할 수 있
 ---
 
 ### **WebGPU의 탄생**
-Google은 2016년 
+WebGPU는 2016년 6월 WebGL Working Group에서 WebGL을 대체할 새로운 API라는 주제로 Google에 의해 최초로 아이디어가 제시되었다. 이후 2017년 W3C에 [GPU for the Web](https://www.w3.org/community/gpu/)이 출범하면서 공식적으로 논의가 시작되었고, 2018년 6년, Google의 chrome팀은 WebGPU 표준을 구현하겠다고 발표하였다.
+
+---
+
+### **WebGPU 현황**
+WebGPU의 표준은 [gpuweb](https://github.com/gpuweb/gpuweb) Github Repository에서 정의되고 있다.
+ - [WebGPU specification](https://gpuweb.github.io/gpuweb/)
+ - [WGSL specification](https://gpuweb.github.io/gpuweb/wgsl/)
+
+---
 
 **Reference**
  - https://en.wikipedia.org/wiki/WebGPU
