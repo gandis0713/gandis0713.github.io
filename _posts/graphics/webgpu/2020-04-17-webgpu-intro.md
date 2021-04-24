@@ -31,8 +31,18 @@ WebGL API는 HTML5에서 제공하는 Canvas Element를 통해 접근할 수 있
 
 ---
 
-### **WebGPU의 탄생**
+### **WebGPU**
 WebGPU는 2016년 6월 WebGL Working Group에서 WebGL을 대체할 새로운 API라는 주제로 Google에 의해 최초로 아이디어가 제시되었다. 이후 2017년 W3C에 [GPU for the Web](https://www.w3.org/community/gpu/)이 출범하면서 공식적으로 논의가 시작되었고, 2018년 6년, Google의 chrome팀은 WebGPU 표준을 구현하겠다고 발표하였다.
+
+Google은 2019 Dev Fest에서 WebGPU는 WebGL보다 아래와 같은 3가지 Improvment가 있다고 발표를 하였다. [WebGPU: Next-generation 3D graphics on the web (DevFest 2019)](https://www.youtube.com/watch?v=EhWvqaRDz5s)
+ 
+ 1. Better CPU Performance.
+ 2. Access to GPU compute functionality.
+ 3. WebAssembly and native WebGPU. 
+
+대략적인 내용으로는 WebGL은 Rendering Pipeline과 Drawing Option을 설정하고, 이를 최적화 하는 과정이 Object를 그릴 때 마다 CPU에 의해 매번 수행된다. 반면, WebGPU는 Rendering Pipeline을 초기에 단 한번만 수행을 하고, 만약 상태가 변경되지 않은 Object(예 - background)는 초기에 Drawing 명령어를 bundle로 만들어 재사용할 수 있다고 한다. 그렇기 때문에 CPU 연산이 많이 줄어든다고 한다. 
+
+또한 Shared Memory(예 - CPU의 cache) 개념을 도입함으로써 병렬 연산시에 ALU(Arithmetic Logic Unit)들이 Shared Memory를 이용해 더 빠르게 연산을 수행 할 수 있다고 한다.
 
 ---
 
