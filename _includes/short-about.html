@@ -11,4 +11,25 @@
     <!-- SNS Link -->
     {% include sns-links.html %}
   </div>
+
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=2u40g5bcii&submodules=geocoder"></script>
+  <script>
+    window.addEventListener('load', function() {
+      naver.maps.Service.geocode({ address: '삼성1로2길 13' }, function(status, response) {
+        const longitude = parseFloat(response.result.items[0].point.x);
+        const latitude = parseFloat(response.result.items[0].point.y);
+        let mapOptions = {
+          center: new naver.maps.LatLng(latitude, longitude),
+          zoom: 15
+        };
+        let map = new naver.maps.Map('map', mapOptions);
+        let marker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(latitude, longitude),
+          map: map
+        });
+      });
+
+    });
+  </script>
+  <div id="map" style="width:100%;height:400px;"></div>
 </section>
