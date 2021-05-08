@@ -11,15 +11,25 @@ tags:
   - OpenGL
   - Transform
 ---
-## **OpenGL(WebGL) 변환**
-Vertex, Normal Vector와 같은 기하학적 데이터는 OpenGL의 파이프 라인의 Rasterization Process전에 Vertex Operation, Primitive Assembly Operation을 통해 변환된다. 이 기하학적 데이터의 Vertex Operation은 Vertex Shader에서 진행되며, Primitive Assembly는 Vertex Operation 이후에 진행된다.
+
+## **OpenGL(WebGL) 변환(Transform)**
+OpenGL 변환은 Vertex, Normal Vector와 같은 기하학적 데이터가 OpenGL의 파이프라인을 거쳐 화면에 표시되는 데이터로 변환되는 과정을 의미한다. OpenGL의 변환과정은 아래와 같이 5가지로 분류할 수 있으며 아래 변환과정은 순서대로 진행된다.
+
+ 1. **Object Coordinates**
+ 2. **Eye Coordinates**
+ 3. **Clip Coordinates**
+ 4. **Normalized Device Coordinates**
+ 5. **Window Coordinates**
 
 ---
+
 ### **1. Object Coordinates**
-Object Coordinates는 객체의 Local Coordinates이며, 어떠한 Transform도 적용되지 않은 상태이다.
+Object Coordinates는 객체의 Local Coordinates이며, 어떠한 변환도 적용되지 않은 상태이다.
 
 ### **2. Eye Coordinates**
-Eye Coordinates는 ModelView Matrix를 사용하여 변환하는 것을 말하며, ModelView Matrix는 Model과 View Matrix의 조합을 나타낸다. Model Matrix는 Object를 Local Coordinate에서 World Coordinates로 변환하는 단계이며, View Matrix는 World Coordinates를 Eye Coordinates로 변환하는 단계이다. **따라서 View Matrix는 World Coordinates를 기준으로 정의되며, World Coordinates의 [0, 0, 0]위치에서 -z축을 바라보는 방향으로 Object를 변환하는 것이 View Matrix의 역할이다.**
+Eye Coordinates는 ModelView Matrix를 사용하여 변환하는 것을 말하며, ModelView Matrix는 Model과 View Matrix의 조합을 나타낸다. Model Matrix는 Object를 Local Coordinate에서 World Coordinates로 변환하는 단계이며, View Matrix는 World Coordinates를 Eye Coordinates로 변환하는 단계이다. 
+
+**따라서 View Matrix는 World Coordinates를 기준으로 정의되며, World Coordinates의 [0, 0, 0]위치에서 -z축을 바라보는 방향으로 Object를 변환하는 것이 View Matrix의 역할이다.**
 
 View Matrix는 Translation, Rotation 두개의 변환으로 구성되며, Translation변환은 Object을 이동시키는 역할을 하고 Rotation변환은 Object의 회전시키는 역할을 한다. 
 
@@ -33,11 +43,13 @@ Rotation 변환은 [0, 0, 0]에서 Camera가 바라보는 방향이 -z축이 되
 VM = RM * TM
 ~~~
 
-OpenGL에는 별도의 View Matrix(Camera)를 정의하고 있지 않다. 따라서 사용자가 View Matrix를 직접 정의해서 사용해야 한다. View Matrix는 우리가 흔히 사용하는 glm, glMatrix와 같은 라이브러리에서 lootAt API로 제공을 하고 있다. View Matrix(lookAt API)에 대한 자세한 설명은 [OpenGL Camera](http://www.songho.ca/opengl/gl_camera.html#lookat)을 참고한다.
+OpenGL에는 별도의 View Matrix를 정의하고 있지 않다. 따라서 사용자가 View Matrix를 직접 정의해서 사용해야 한다. View Matrix는 우리가 흔히 사용하는 glm, glMatrix와 같은 라이브러리에서 lootAt API로 얻을 수 있다. View Matrix(lookAt API)에 대한 자세한 설명은 [OpenGL Camera](http://www.songho.ca/opengl/gl_camera.html#lookat)을 참고한다.
 
 
 ### **3. Clip Coordinates**
+우리가 사용하는 모니터 화면은 2차원 표면이다. 3차원 Object를 2차원 모니터에 표시하기 위해서는 3차원 Object를 2차원 표면에 투영되어야 한다. 이 과정을 위해 사용되는 변환이 투영(Projection)변환이며, 투영변환과정에서 Eye Coordinates의 Object를 Clip Coordinates로 변환된다. 그렇다고 투영변환이 Eye Coordinates를 Clip Coordinates로 변환하는 것이 아니다.
 
+**투영변환은 Clipping과 Normalized Device Coordinate변환이 포함되어 있다.** 
 
 
 ### **4. Normalized Device Coordinates**
