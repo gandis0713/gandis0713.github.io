@@ -70,10 +70,4 @@ viewport를 정의하기 위해 전달받는 [x, y, width, height]를 parameter�
 ---
 
 **Reference**
-- https://ganghee-lee.tistory.com/50
-- https://www.kaggle.com/c/2020mltermproject3dclassification
-- https://m.blog.naver.com/jyh0841/220486354290
-- https://parksh86.tistory.com/168
-- https://www.quora.com/What-is-the-difference-between-orthographic-and-perspective-projections-in-engineering-drawing
-- https://opengl-notes.readthedocs.io/en/latest/topics/lighting/shading.html
-- https://eu.wikipedia.org/wiki/Fitxategi:Texture%2BMapping.jpg
+- http://www.songho.ca/opengl/gl_transform.html
