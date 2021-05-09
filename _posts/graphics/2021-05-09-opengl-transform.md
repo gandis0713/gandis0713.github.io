@@ -15,7 +15,7 @@ tags:
 
 > 이 글은 WebGL을 기준으로 작성되었으나 WebGL과 OpenGL의 Coordinate Systems은 동일하다. 
 
-## **WebGL Coordinate System**
+## **WebGL Coordinate Systems**
 WebGL Coordinate System은 Vertex, Normal Vector와 같은 기하학적 데이터가 WebGL의 파이프라인에서 사용되는 각종 Coordinates를 거쳐 화면에 표시되는 과정을 의미한다. WebGL의 Coordinate System은 아래와 같이 5가지로 분류할 수 있으며 아래 Coordinates 들은 순서대로 진행된다.
 
  1. **Object Coordinates**
@@ -53,10 +53,14 @@ WebGL에는 별도의 View Matrix를 정의하고 있지 않다. 따라서 사�
 우리가 사용하는 모니터 화면은 2차원 표면이다. 3차원 Object를 2차원 모니터에 표시하기 위해서는 3차원 Object를 2차원 표면에 투영되어야 한다. 이 과정을 위해 사용되는 변환이 투영(Projection)변환이며, 투영변환과정에서 Eye Coordinates의 Object를 Clip Coordinates로 변환된다. 
 투영 변환은 임의의 공간에 존재하는 Object를 화면으로 투명한다. 이때 임의의 공간을 클립 공간(Clip Space)이라고 하며, 클립 공간은 절두체(Frustum)으로 정의한다. 그리고 클립공간에서 투영변환이 이루어 지기 때문에 클립공간에 의해 Object는 잘리게 된다. 그렇기 때문에 Clip Coordinates라고 불린다.
 
-> 우리가 투명변환에 사용하는 Projection Matrix는 Perspective, Orthographic두가지가 있고, gl-matrix에서는 이 두가지 Projection Matrix를 모두 제공한다. 하지만 이 Projection Matrix은 Eye Coordinates의 Object를 Clip Coordinates로 변환하는 것이 아니다. **Projection Matrix는 Eye Coordinates -> Clip Coordinates -> NDC(Normalized Device Coordinates)로 변환한다.**
+클립공간에서 잘리게 되는 조건은 **-w' < x', y', z' < w** 이다. Eye Coordinate에서 x,y,z,w를 가진 vertex를 Projection Matrix로 연산 하면, x', y', z', w'이 된다. 이때 x', y', z'이 -w' ~ w'사이에 값을 벗어날 경우 잘리게 된다. 
 
 ### **4. NDC(Normalized Device Coordinates)**
-WebGL의 NDC의 범위는 x, y, z모두 -1.0 ~ 1.0사이이며, 왼손 좌표계를 사용한다. 즉, 왼쪽 하단을 기준 y축은 위쪽방향을, x축은 오른쪽 방향을, z축은 모니터를 뚫고 들어가는 방향을 나타낸다. WebGL은 오른손 좌표계를 사용하지만 NDC는 왼손 좌표계를 사용한다.
+WebGL의 NDC의 범위는 x, y, z축 모두 -1.0 ~ 1.0 이다. 위의 Clip Coordinates에서 Projection Matrix 연산으로 구한 [x', y', z', w']의 vertex를 [x'/w', y'/w', z'/w']와 같이 w'로 나누어 주면 NDC 좌표로 변환된다.
+
+> 우리가 투명변환에 사용하는 Projection Matrix는 WebGL의 NDC 범위를 기준으로 생성된다. 따라서 Projection Matrix로 구한 w'값으로 x', y', z'를 나누어 줄 경우 WebGL의 NDC 범위로 일반화 된다.
+
+> NDC는 **왼손 좌표계**를 사용하지만, WebGL은 **오른손 좌표계**를 사용한다. Projection Matrix는 클립 공간으로 정의된 Frustum의 범위를 NDC의 범위로 변환을 시킬 뿐만 아니라, NDC의 좌표계를 고려하여 **오른손 좌표계**의 클립 공간을 **왼손 좌표계**로 변환시켜 계산한다. 그리고 Projection Matrix를 생성할 때 parameter로 전달하는 near, far값은 **왼손 좌표계**기준으로 전달한다.
 
 ### **5. Window Coordinates**
 ---
