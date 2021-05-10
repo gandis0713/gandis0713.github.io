@@ -13,7 +13,7 @@ tags:
   - Transform
 ---
 
-> 이 글은 WebGL을 기준으로 작성되었으나 WebGL과 OpenGL의 Coordinate Systems은 동일하다. 
+> 이 글은 WebGL의 Coordinate System에 대해 학습한 내용을 정리한 글이며, WebGL을 기준으로 작성되었으나 WebGL과 OpenGL의 Coordinate Systems은 동일하다. 
 
 ## **WebGL Coordinate Systems**
 WebGL Coordinate System은 Vertex, Normal Vector와 같은 기하학적 데이터가 WebGL의 파이프라인에서 사용되는 각종 Coordinates를 거쳐 화면에 표시되는 과정을 의미한다. WebGL의 Coordinate System은 아래와 같이 5가지로 분류할 수 있으며 아래 Coordinates 들은 순서대로 진행된다.
@@ -23,6 +23,10 @@ WebGL Coordinate System은 Vertex, Normal Vector와 같은 기하학적 데이�
  3. **Clip Coordinates**
  4. **NDC(Normalized Device Coordinates)**
  5. **Window Coordinates**
+
+ 위 Coordinates System을 설명하기 위한 좋은 그림이 있어 아래 첨부하였다.
+
+ ![](/../../img/graphics/coordinates/coordinate_systems_1.png)
 
 ---
 
@@ -73,5 +77,16 @@ $$\large z_{wc}=\left(\frac{near+far}{2}\right)+\left(\frac{far-near}{2}\right)z
 
 ---
 
+### **WebGL Coordinate Systems Diagram**
+
+WebGL Coordinate Systems이 WebGL의 파이프라인의 어떤 부분의 적용되는지 알아보기 위한 그림이 있어 첨부하였다. 아래 그림은 OpenGL로 표시되었으나 WebGL과 동일하다.  
+
+![](/../../img/graphics/coordinates/coordinate_systems_2.png)
+
+위에서 설명한 WebGL의 coordiante systems은 Window Coordinates이 마지막 단계이다. 이 단계까지가 WebGL의 단계이고 위의 그림의 DC는 Window System에 속한다. 이는 Browser에서 화면을 표시해 주는 HTML Element로 비유할 수 있는데, HTML Element는 왼쪽 상단이 $[0, \;0]$ 기준점이 되고, $x$ 축은 오른쪽 방향을 향하고, $y$축은 아래방향을 향한다. 이는 WebGL의 viewport좌표와는 y축이 반대가 된다.
+
+---
+
 **Reference**
 - http://www.songho.ca/opengl/gl_transform.html
+- https://m.blog.naver.com/luku756/222056517453
