@@ -40,7 +40,7 @@ Translation Matrix($M_T$)는 View(Camera)의 위치를 World Coordinates의 $[0,
 
 Rotation Matrix($M_R$)는 $[0, \;0, \;0]$에서 Camera가 $-z$축을 바라보도록 회전시키는 변환을 나타낸다. 예를 들어 Camera가 $[0, \;0, \;0]$에서 $x$축을 바라보고 있다면, $y$회전축으로 90도로 회전시켜 $-z$축을 바라보게 한다.
 
-결국 View Matrix($M_{view}$)는 Translation Matrix($T_M$)를 먼저 적용하여 Camera를 $[0, \;0, \;0]$으로 이동시키 후, Rotation Matrix($R_M$)를 적용하여 Camera가 $-z$축을 바라보게 하는 변환과정이다. 이 변환과정을 Object에 적용시키면 Eye Coordinates에서의 Object 상태를 알 수 있다.
+결국 View Matrix($M_{view}$)는 Translation Matrix($T_M$)를 먼저 적용하여 Camera를 $[0, \;0, \;0]$으로 이동시킨 후, Rotation Matrix($R_M$)를 적용하여 Camera가 $-z$축을 바라보게 하는 과정이다. 이 변환과정을 Object에 적용시키면 Eye Coordinates에서의 Object의 위치와 회전상태를 알 수 있다.
 
 $$\Large M_{view}=M_R M_T$$
 
