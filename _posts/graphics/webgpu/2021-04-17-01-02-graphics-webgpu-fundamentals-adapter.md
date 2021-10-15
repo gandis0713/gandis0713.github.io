@@ -26,7 +26,7 @@ Adapter는 WebGPU의 Core Internal Objects로 분리되는 두가지 Internal Ob
 WebGPU가 구현되어 있는 Google의 'Dawn' Source Code를 보면, vulkan용 Adapter의 경우 생성자에서 VkPhysicalDevice를 paramter로 전달받는 것을 확인 할 수 있다.
 
 [Source Code Link](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/vulkan/AdapterVk.cpp#25)
-~~~C++ 
+~~~cpp
 namespace dawn_native { namespace vulkan {
     Adapter::Adapter(Backend* backend, VkPhysicalDevice physicalDevice)
         : AdapterBase(backend->GetInstance(), wgpu::BackendType::Vulkan),
@@ -40,7 +40,7 @@ namespace dawn_native { namespace vulkan {
 그리고 논리적 장치(Logical Device)를 생성할 때, 내부적으로 VkPhysicalDevice객체를 통해 지원하는 Feature들을 확인한 후 생성하는 것으로 확인된다.
 
 [Source Code Link](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/Adapter.cpp#121)
-~~~C++
+~~~cpp
 void AdapterBase::RequestDevice(const DeviceDescriptor* descriptor,
                                 WGPURequestDeviceCallback callback,
                                 void* userdata) {
