@@ -23,9 +23,9 @@ Adapter는 WebGPU의 Core Internal Objects로 분리되는 두가지 Internal Ob
 
 즉, WebGPU에서 vulkan을 그래픽 API로 선택할 경우, Adapter는 vulkan의 물리적 장치 객체를 통해 플렛폼에서 지원하는 기능을 파악하고 논리적 장치를 생성하는 역할을 하게 된다.
 
-WebGPU가 구현되어 있는 Google의 'Dawn' Source Code를 보면, vulkan용 Adapter의 경우 생성자에서 VkPhysicalDevice를 paramter로 전달받는 것을 확인 할 수 있다.
+WebGPU가 구현되어 있는 Google의 '[Dawn](https://dawn.googlesource.com/dawn/)' Source Code를 보면, vulkan용 Adapter의 경우 생성자에서 VkPhysicalDevice를 paramter로 전달받는 것을 확인 할 수 있다.
 
-[Source Code Link](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/vulkan/AdapterVk.cpp#25)
+Source Code : https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/vulkan/AdapterVk.cpp
 ~~~cpp
 namespace dawn_native { namespace vulkan {
     Adapter::Adapter(Backend* backend, VkPhysicalDevice physicalDevice)
@@ -39,7 +39,7 @@ namespace dawn_native { namespace vulkan {
 
 그리고 논리적 장치(Logical Device)를 생성할 때, 내부적으로 VkPhysicalDevice객체를 통해 지원하는 Feature들을 확인한 후 생성하는 것으로 확인된다.
 
-[Source Code Link](https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/Adapter.cpp#121)
+Source Code : https://dawn.googlesource.com/dawn/+/refs/heads/main/src/dawn_native/Adapter.cpp
 ~~~cpp
 void AdapterBase::RequestDevice(const DeviceDescriptor* descriptor,
                                 WGPURequestDeviceCallback callback,
