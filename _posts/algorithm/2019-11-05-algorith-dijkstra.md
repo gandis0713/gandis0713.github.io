@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "다익스트라(dijkstra)"
+title: "<code>[Algorithm]</code> <br> 다익스트라(dijkstra)"
 subtitle: '다익스트라(dijkstra)'
 author: "Gandis"
 header-style: text
