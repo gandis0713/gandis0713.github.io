@@ -10,7 +10,6 @@ title: "Arithmetic Circuits"
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>정수 및 소수점 연산 회로</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -140,15 +139,28 @@ title: "Arithmetic Circuits"
             margin-top: 15px;
             text-align: center;
         }
+
+        .info {
+            background-color: #e7f3ff;
+            border: 1px solid #b3d9ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .info h3 {
+            margin-top: 0;
+            color: #0066cc;
+        }
     </style>
 </head>
 <body>
-    <div class="info">
-        <h3>📝 설명</h3>
-        <p>이 글은 정수와 소수가 회로에서 연산되는 과정을 비주얼적으로 표시한것이다. Claude Sonnet 4로 생성하였다.</p>
-    </div>
     <div class="container">
-        
+        <title>정수 및 소수점 연산 회로</title>
+        <div class="info">
+            <h3>📝 설명</h3>
+            <p>이 글은 정수와 소수가 회로에서 연산되는 과정을 비주얼적으로 표시한것이다. Claude Sonnet 4로 생성하였다.</p>
+        </div>
         <!-- 정수 연산 회로 -->
         <div class="circuit-section">
             <div class="circuit-title">1. 정수 연산 회로 (Integer Arithmetic Circuit)</div>
