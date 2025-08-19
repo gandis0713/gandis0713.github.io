@@ -4,7 +4,6 @@ title: "Arithmetic Circuits"
 ---
 
 ---
-이 글은 정수와 소수가 회로에서 연산되는 과정을 비주얼적으로 표시한것이다. Claude Sonnet 4로 생성하였다.
 
 <!-- <!DOCTYPE html> -->
 <html lang="ko">
@@ -144,8 +143,11 @@ title: "Arithmetic Circuits"
     </style>
 </head>
 <body>
+    <div class="info">
+        <h3>📝 설명</h3>
+        <p>이 글은 정수와 소수가 회로에서 연산되는 과정을 비주얼적으로 표시한것이다. Claude Sonnet 4로 생성하였다.</p>
+    </div>
     <div class="container">
-        <h1>🔢 정수 및 소수점 연산 회로</h1>
         
         <!-- 정수 연산 회로 -->
         <div class="circuit-section">
